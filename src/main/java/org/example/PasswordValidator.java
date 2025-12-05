@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Set;
+
 public final class PasswordValidator {
 
         public static boolean hasMinLength(String password, int min) {
@@ -43,16 +45,22 @@ public final class PasswordValidator {
             }
             return isUpper && isLower;
         }
+        // --- Static internal list  ---
+        private static final Set<String> common_passwords = Set.of(
+            "password",
+            "passwort1",
+            "12345678",
+            "aa345678");
 
         public static boolean isCommonPassword(String password) {
             if(password==null || password.isBlank()) {
                 return false;
             }
-            String[]common_passwords={"password", "Passwort1", "12345678", "Aa345678"};
+
             boolean isCommon=false;
 
             for (String commonPassword : common_passwords) {
-                if (password.equals(commonPassword) || password.toLowerCase().equals(commonPassword)) {
+                if (password.trim().equals(commonPassword) || password.trim().toLowerCase().equals(commonPassword)) {
                     isCommon = true;
                     break;
                 }
