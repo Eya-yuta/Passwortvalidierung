@@ -49,6 +49,16 @@ class PasswordValidatorTest {
         //THEN
         assertEquals(expected,actual);
     }
+    @Test
+    void returnTrue_if_containsOnlyOneDigit() {
+        //GIVEN
+        String password = "kjuhzg8trdghj";
+        //WHEN
+        boolean actual=PasswordValidator.containsDigit(password);
+        //THEN
+        assertTrue(actual);
+    }
+
 
     @org.junit.jupiter.api.Test
     void containsUpperAndLower() {
