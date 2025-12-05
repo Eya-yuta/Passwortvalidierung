@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PasswordValidatorTest {
 
     @Test
-    void returnTrue_ifPassword_hasMinLength() {
+    void returnTrue_ifPassword_hasMinLength_ofEight() {
         //GIVEN
         String password = "akdjjkljk";
         int min_l=8;
@@ -15,6 +15,15 @@ class PasswordValidatorTest {
         //THEN
         assertEquals(expected,actual);
     }
+    @Test
+    void returnTrue_ifPassword_hasLength_greaterThanMin() {
+        assertTrue(PasswordValidator.hasMinLength("leo958hfn",8));
+    }
+    @Test
+    void returnTrue_ifPassword_hasLength_smallerThanMin() {
+        assertFalse(PasswordValidator.hasMinLength("leo95",8));
+    }
+
     @Test
     void returnTrue_ifPassword_Null() {
         //GIVEN
