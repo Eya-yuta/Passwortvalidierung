@@ -140,5 +140,26 @@ class PasswordValidatorTest {
     void test_returnTrue_if_CommonPassword(){
         assertFalse(PasswordValidator.isValid("Passwort1"));
     }
+    @Test
+    void test_returnTrue_if_onlyDigitsAndLowercase(){
+        assertFalse(PasswordValidator.isValid("lfkshmv87zhsmch"));
+    }
+    @Test
+    void test_returnTrue_if_onlyDigitsAndUppercase(){
+        assertFalse(PasswordValidator.isValid("KSJH8756JD7"));
+    }
+    @Test
+    void test_returnTrue_if_commonPasswordMitSpaces(){
+        assertFalse(PasswordValidator.isValid(" Passwort1 "));
+    }
+    @Test
+    void test_returnTrue_if_VeryLongPassword(){
+        String password = " Abcdef1g ";
+        String longPw = "a".repeat(5000)+password;
+
+        assertTrue(PasswordValidator.isValid(longPw));
+    }
+
+
 
 }
