@@ -3,10 +3,14 @@ package org.example;
 public final class PasswordValidator {
 
         public static boolean hasMinLength(String password, int min) {
-            // TODO: implement
+            int len = password.length();
+            if (len < min) {
+                return false;
+            }
+            return true;
         }
 
-        public static boolean containsDigit(String password) {
+        /*public static boolean containsDigit(String password) {
             // TODO: implement
         }
 
@@ -26,6 +30,6 @@ public final class PasswordValidator {
         // Optional:
         public static boolean isValid(String password) {
             // TODO: call the other methods
-        }
+        }*/
 
 }
