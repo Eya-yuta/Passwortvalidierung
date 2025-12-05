@@ -93,7 +93,8 @@ public final class PasswordValidator {
             if (password==null || password.isBlank()) {
                 return false;
             }
-            return hasMinLength(password, 8) && containsDigit(password) && containsUpperAndLower(password) && !isCommonPassword(password);
+            String allowed = "!@#$%^&*()-_+=?.,;:";
+            return hasMinLength(password, 8) && containsDigit(password) && containsUpperAndLower(password) && !isCommonPassword(password)&& containsSpecialChar(password,allowed);
 
         }
 
