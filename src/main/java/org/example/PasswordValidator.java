@@ -70,9 +70,23 @@ public final class PasswordValidator {
         }
 
         // Bonus:
-        /*public static boolean containsSpecialChar(String password, String allowed) {
-            // TODO: implement
-        }*/
+
+        public static boolean containsSpecialChar(String password, String allowed) {
+            if(password==null || password.isBlank()) {
+                return false;
+            }
+            boolean isSpecialChar=false;
+            for(int i=0;i<password.length();i++) {
+                char c=password.charAt(i);
+                for(int j=0;j<allowed.length();j++) {
+                    if(c==allowed.charAt(j)) {
+                        isSpecialChar=true;
+                        break;
+                    }
+                }
+            }
+            return isSpecialChar;
+        }
 
         // Validation:
         public static boolean isValid(String password) {

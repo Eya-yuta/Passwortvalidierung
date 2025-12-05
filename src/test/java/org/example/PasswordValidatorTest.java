@@ -160,6 +160,28 @@ class PasswordValidatorTest {
         assertTrue(PasswordValidator.isValid(longPw));
     }
 
+    @Test
+    void test_returnTrue_if_ContainsOneSpecialChar(){
+        String allowed = "!@#$%^&*()-_+=?.,;:";
+        assertTrue(PasswordValidator.containsSpecialChar("Abcdef1g#",allowed));
+    }
+    @Test
+    void test_returnTrue_if_ContainsManySpecialChar(){
+        String allowed = "!@#$%^&*()-_+=?.,;:";
+        assertTrue(PasswordValidator.containsSpecialChar("Ab%cd?ef1g#",allowed));
+    }
+    @Test
+    void test_returnTrue_if_ContainsNoSpecialChar(){
+        String allowed = "!@#$%^&*()-_+=?.,;:";
+        assertFalse(PasswordValidator.containsSpecialChar("Abcdef1g",allowed));
+    }
+    @Test
+    void test_returnTrue_if_ContainsSpecialChar_notInTheList(){
+        String allowed = "!@#$%^&*()-_+=?.,;:";
+        assertFalse(PasswordValidator.containsSpecialChar("Abcdef1g]",allowed));
+    }
+
+
 
 
 }
