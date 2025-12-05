@@ -40,7 +40,14 @@ class PasswordValidatorTest {
     }
 
     @Test
-    void containsDigit() {
+    void returnTrue_if_containsNoDigit() {
+        //GIVEN
+        String password = "kjuhzgtrdghj";
+        boolean expected=false;
+        //WHEN
+        boolean actual=PasswordValidator.containsDigit(password);
+        //THEN
+        assertEquals(expected,actual);
     }
 
     @org.junit.jupiter.api.Test

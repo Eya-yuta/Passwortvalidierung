@@ -10,11 +10,22 @@ public final class PasswordValidator {
             return len >= min;
         }
 
-        /*public static boolean containsDigit(String password) {
-            // TODO: implement
+        public static boolean containsDigit(String password) {
+            if(password==null || password.isBlank()) {
+                return false;
+            }
+            boolean isDigit=false;
+            for(int i=0;i<password.length();i++) {
+                char c=password.charAt(i);
+                if(c>='0' && c<='9') {
+                    isDigit=true;
+                    break;
+                }
+            }
+            return isDigit;
         }
 
-        public static boolean containsUpperAndLower(String password) {
+        /*public static boolean containsUpperAndLower(String password) {
             // TODO: implement
         }
 
