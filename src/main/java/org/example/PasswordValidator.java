@@ -44,12 +44,25 @@ public final class PasswordValidator {
             return isUpper && isLower;
         }
 
-        /*public static boolean isCommonPassword(String password) {
-            // TODO: implement
+        public static boolean isCommonPassword(String password) {
+            if(password==null || password.isBlank()) {
+                return false;
+            }
+            String[]common_passwords={"password", "Passwort1", "12345678", "Aa345678"};
+            boolean isCommon=false;
+
+            for(int i=0;i<common_passwords.length;i++) {
+                if(password.equals(common_passwords[i])||password.toLowerCase().equals(common_passwords[i])) {
+                    isCommon=true;
+                    break;
+                }
+            }
+            return isCommon;
+
         }
 
         // Bonus:
-        public static boolean containsSpecialChar(String password, String allowed) {
+        /*public static boolean containsSpecialChar(String password, String allowed) {
             // TODO: implement
         }
 
