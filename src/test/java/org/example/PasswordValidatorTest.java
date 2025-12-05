@@ -23,7 +23,6 @@ class PasswordValidatorTest {
     void returnTrue_ifPassword_hasLength_smallerThanMin() {
         assertFalse(PasswordValidator.hasMinLength("leo95",8));
     }
-
     @Test
     void returnTrue_ifPassword_Null() {
         //GIVEN
@@ -35,7 +34,6 @@ class PasswordValidatorTest {
         //GIVEN
         assertEquals(expected,actual);
     }
-
     @Test
     void returnTrue_ifPassword_blank() {
         //GIVEN
@@ -47,6 +45,7 @@ class PasswordValidatorTest {
         //GIVEN
         assertEquals(expected,actual);
     }
+
 
     @Test
     void test_returnTrue_if_containsNoDigit() {
@@ -67,7 +66,6 @@ class PasswordValidatorTest {
         //THEN
         assertTrue(actual);
     }
-
     @Test
     void test_returnTrue_if_containsManyDigits() {
         //GIVEN
@@ -85,12 +83,24 @@ class PasswordValidatorTest {
     }
 
 
-
-    @org.junit.jupiter.api.Test
-    void containsUpperAndLower() {
+    @Test
+    void test_returnTrue_ifContainsOnlyUpper() {
+        assertFalse(PasswordValidator.containsUpperAndLower("ABCDEF"));
+    }
+    @Test
+    void test_returnTrue_ifContainsOnlyLower() {
+        assertFalse(PasswordValidator.containsUpperAndLower("abcdef"));
+    }
+    @Test
+    void test_returnTrue_ifContainsUpperAndLower() {
+        assertTrue(PasswordValidator.containsUpperAndLower("kdfhSHksd"));
+    }
+    @Test
+    void test_returnTrue_ifContainsSingleLetter() {
+        assertFalse(PasswordValidator.containsUpperAndLower("a"));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void isCommonPassword() {
     }
 }

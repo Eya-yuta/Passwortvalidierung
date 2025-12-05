@@ -25,11 +25,26 @@ public final class PasswordValidator {
             return isDigit;
         }
 
-        /*public static boolean containsUpperAndLower(String password) {
-            // TODO: implement
+        public static boolean containsUpperAndLower(String password) {
+            if (password==null || password.isBlank()) {
+                return false;
+            }
+            boolean isUpper=false;
+            boolean isLower=false;
+            for(int i=0;i<password.length();i++) {
+                char c=password.charAt(i);
+                if(c>='A' && c<='Z') {
+                    isUpper=true;
+                }
+                if(c>='a' && c<='z') {
+                    isLower=true;
+                }
+                if (isUpper && isLower) break;
+            }
+            return isUpper && isLower;
         }
 
-        public static boolean isCommonPassword(String password) {
+        /*public static boolean isCommonPassword(String password) {
             // TODO: implement
         }
 
