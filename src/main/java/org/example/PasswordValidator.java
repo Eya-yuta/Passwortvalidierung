@@ -3,6 +3,9 @@ package org.example;
 public final class PasswordValidator {
 
         public static boolean hasMinLength(String password, int min) {
+            if(password==null || password.isBlank()) {
+                return false;
+            }
             int len = password.length();
             return len >= min;
         }

@@ -15,6 +15,29 @@ class PasswordValidatorTest {
         //THEN
         assertEquals(expected,actual);
     }
+    @Test
+    void returnTrue_ifPassword_Null() {
+        //GIVEN
+        String password = null;
+        int min_l=8;
+        boolean expected=false;
+        //WHEN
+        boolean actual=PasswordValidator.hasMinLength(password, min_l);
+        //GIVEN
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    void returnTrue_ifPassword_blank() {
+        //GIVEN
+        String password = "         ";
+        int min_l=8;
+        boolean expected=false;
+        //WHEN
+        boolean actual=PasswordValidator.hasMinLength(password, min_l);
+        //GIVEN
+        assertEquals(expected,actual);
+    }
 
     @Test
     void containsDigit() {
