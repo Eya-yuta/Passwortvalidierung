@@ -7,7 +7,7 @@ class PasswordValidatorTest {
     @Test
     void returnTrue_ifPassword_hasMinLength_ofEight() {
         //GIVEN
-        String password = "akdjjkljk";
+        String password = "akdjjklk";
         int min_l=8;
         boolean expected=true;
         //WHEN
@@ -115,4 +115,30 @@ class PasswordValidatorTest {
     void returnTrue_if_isCommonPassword_DifferentCase(){
         assertTrue(PasswordValidator.isCommonPassword("PASSword"));
     }
+
+    @Test
+    void test_returnTrue_ifAllRequirementsMet(){
+        assertTrue(PasswordValidator.isValid("Abcdef1g"));
+    }
+    @Test
+    void test_returnTrue_if_MinLengthFail(){
+        assertFalse(PasswordValidator.isValid("Abc1def"));
+    }
+    @Test
+    void test_returnTrue_if_NoDigit(){
+        assertFalse(PasswordValidator.isValid("Abcdefgh"));
+    }
+    @Test
+    void test_returnTrue_if_OnlyLowercase(){
+        assertFalse(PasswordValidator.isValid("abcdefg1"));
+    }
+    @Test
+    void test_returnTrue_if_OnlyUppercase(){
+        assertFalse(PasswordValidator.isValid("ABCDEFG1"));
+    }
+    @Test
+    void test_returnTrue_if_CommonPassword(){
+        assertFalse(PasswordValidator.isValid("Passwort1"));
+    }
+
 }

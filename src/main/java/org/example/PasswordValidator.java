@@ -51,9 +51,9 @@ public final class PasswordValidator {
             String[]common_passwords={"password", "Passwort1", "12345678", "Aa345678"};
             boolean isCommon=false;
 
-            for(int i=0;i<common_passwords.length;i++) {
-                if(password.equals(common_passwords[i])||password.toLowerCase().equals(common_passwords[i])) {
-                    isCommon=true;
+            for (String commonPassword : common_passwords) {
+                if (password.equals(commonPassword) || password.toLowerCase().equals(commonPassword)) {
+                    isCommon = true;
                     break;
                 }
             }
@@ -64,11 +64,15 @@ public final class PasswordValidator {
         // Bonus:
         /*public static boolean containsSpecialChar(String password, String allowed) {
             // TODO: implement
-        }
-
-        // Optional:
-        public static boolean isValid(String password) {
-            // TODO: call the other methods
         }*/
+
+        // Validation:
+        public static boolean isValid(String password) {
+            if (password==null || password.isBlank()) {
+                return false;
+            }
+            return hasMinLength(password, 8) && containsDigit(password) && containsUpperAndLower(password) && !isCommonPassword(password);
+
+        }
 
 }
