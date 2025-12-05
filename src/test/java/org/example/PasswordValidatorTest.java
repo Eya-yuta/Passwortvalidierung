@@ -40,7 +40,7 @@ class PasswordValidatorTest {
     }
 
     @Test
-    void returnTrue_if_containsNoDigit() {
+    void test_returnTrue_if_containsNoDigit() {
         //GIVEN
         String password = "kjuhzgtrdghj";
         boolean expected=false;
@@ -50,7 +50,7 @@ class PasswordValidatorTest {
         assertEquals(expected,actual);
     }
     @Test
-    void returnTrue_if_containsOnlyOneDigit() {
+    void test_returnTrue_if_containsOnlyOneDigit() {
         //GIVEN
         String password = "kjuhzg8trdghj";
         //WHEN
@@ -58,6 +58,23 @@ class PasswordValidatorTest {
         //THEN
         assertTrue(actual);
     }
+
+    @Test
+    void test_returnTrue_if_containsManyDigits() {
+        //GIVEN
+        String password = "kj4uhzg8trd6ghj";
+        //THEN
+        assertTrue(PasswordValidator.containsDigit(password));
+    }
+    @Test
+    void test_returnTrue_if_containsOnlyDigits() {
+        assertTrue(PasswordValidator.containsDigit("938475652"));
+    }
+    @Test
+    void test_returnTrue_if_containsOtherUnicodeDigits() {
+        assertFalse(PasswordValidator.containsDigit("abc٣def"));
+    }
+
 
 
     @org.junit.jupiter.api.Test
