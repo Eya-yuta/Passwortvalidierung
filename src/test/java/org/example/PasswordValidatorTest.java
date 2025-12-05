@@ -118,7 +118,7 @@ class PasswordValidatorTest {
 
     @Test
     void test_returnTrue_ifAllRequirementsMet(){
-        assertTrue(PasswordValidator.isValid("Abcdef1g"));
+        assertTrue(PasswordValidator.isValid("Abc#def1g"));
     }
     @Test
     void test_returnTrue_if_MinLengthFail(){
@@ -154,11 +154,33 @@ class PasswordValidatorTest {
     }
     @Test
     void test_returnTrue_if_VeryLongPassword(){
-        String password = " Abcdef1g ";
+        String password = " Ab#cdef1g ";
         String longPw = "a".repeat(5000)+password;
 
         assertTrue(PasswordValidator.isValid(longPw));
     }
+
+    @Test
+    void test_returnTrue_if_ContainsOneSpecialChar(){
+        String allowed = "!@#$%^&*()-_+=?.,;:";
+        assertTrue(PasswordValidator.containsSpecialChar("Abcdef1g#",allowed));
+    }
+    @Test
+    void test_returnTrue_if_ContainsManySpecialChar(){
+        String allowed = "!@#$%^&*()-_+=?.,;:";
+        assertTrue(PasswordValidator.containsSpecialChar("Ab%cd?ef1g#",allowed));
+    }
+    @Test
+    void test_returnTrue_if_ContainsNoSpecialChar(){
+        String allowed = "!@#$%^&*()-_+=?.,;:";
+        assertFalse(PasswordValidator.containsSpecialChar("Abcdef1g",allowed));
+    }
+    @Test
+    void test_returnTrue_if_ContainsSpecialChar_notInTheList(){
+        String allowed = "!@#$%^&*()-_+=?.,;:";
+        assertFalse(PasswordValidator.containsSpecialChar("Abcdef1g]",allowed));
+    }
+
 
 
 
