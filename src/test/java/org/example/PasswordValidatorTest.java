@@ -101,6 +101,18 @@ class PasswordValidatorTest {
     }
 
     @Test
-    void isCommonPassword() {
+    void returnTrue_if_isCommonPassword() {
+        assertTrue(PasswordValidator.isCommonPassword("12345678"));
+    }
+
+    @Test
+    void returnTrue_if_isNotCommonPassword() {
+        assertFalse(PasswordValidator.isCommonPassword("kdjntnsrhgfp6588DF"));
+    }
+    void returnTrue_if_isCommonPassword_UpperCase(){
+        assertTrue(PasswordValidator.isCommonPassword("PASSWORD"));
+    }
+    void returnTrue_if_isCommonPassword_DifferentCase(){
+        assertTrue(PasswordValidator.isCommonPassword("PASSword"));
     }
 }
