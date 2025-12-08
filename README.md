@@ -8,10 +8,7 @@ The final submission meets the following requirements:
 - **Test-driven development (TDD)** using **JUnit 5**, with meaningful test coverage.
 - Buildable **locally via Terminal** and **inside IntelliJ IDEA**.
 - **Automated testing via GitHub Actions** (CI : Continuous Integration).
-- A clear and helpful README that includes:
-    - Build, run, and test instructions
-    - The project's password policy
-    - Setup information and additional notes
+- A helpful README
 ---
 
 ## Password Policy
@@ -23,8 +20,8 @@ Minimum 8 characters.
 At least one digit (0–9).
 Both uppercase and lowercase letters.
 Not in a list of common/weak passwords.
+At least one special character (define allowed set).
 
 Optional (bonus policy):
 
-At least one special character (define allowed set).
 Minimum number of distinct character groups (e.g., 3 of 4: upper, lower, digit, special).
