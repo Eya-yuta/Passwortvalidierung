@@ -25,4 +25,3 @@ Must-have criteria (baseline):
 Optional (bonus policy):
 
 - Minimum number of distinct character groups (e.g., 3 of 4: upper, lower, digit, special).
-- Line from MAIN branch
